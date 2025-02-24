@@ -1,4 +1,4 @@
-Estou estudando VB script e estes são códigos de estudo inicial baseados em tutoriais, apenas para me familializar com a linguagem.
+Estou estudando VB script e estes são códigos de estudo inicial baseados em tutoriais, apenas para me familiarizar com a linguagem.
 
 Este é meu caderno de estudos: https://iced-wasabi-0d6.notion.site/VB-script-19f3916bdc8880a195eaec06af2de4ba?pvs=4
 
