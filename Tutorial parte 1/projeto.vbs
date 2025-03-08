@@ -1,82 +1,81 @@
 Option Explicit
-Dim palavra
-Dim letras
-Dim maxErros
-Dim erros
-Dim tentativa 
-Dim exibirPalavra
-palavra = Lcase(InputBox("Digite uma palavra para seu amigo acertar"))
-maxErros = 5
+Dim word
+Dim letters
+Dim maxErrors
+Dim errors
+Dim attempt
+Dim displayWord
+word = LCase(InputBox("Enter a word for your friend to guess"))
+maxErrors = 5
 
-ReDim letras(Len(palavra) - 1)
-ReDim exibirPalavra(Len(palavra) - 1)
+ReDim letters(Len(word) - 1)
+ReDim displayWord(Len(word) - 1)
 
 Dim i
-For i = 1 To Len(palavra)
-    letras(i - 1) = Mid(palavra, i, 1)
-    exibirPalavra(i - 1) = "*"  
+For i = 1 To Len(word)
+    letters(i - 1) = Mid(word, i, 1)
+    displayWord(i - 1) = "*"
 Next
 
-WScript.Echo "A palavra tem " & Join(exibirPalavra, "") & " letras."
+WScript.Echo "The word has " & Join(displayWord, "") & " letters."
 
-Do While erros < maxErros
+Do While errors < maxErrors
     WScript.Echo "" & vbCrLf
-    WScript.StdOut.WriteLine "Digite uma letra:"
-    tentativa = LCase(WScript.StdIn.ReadLine())
-    If Len(tentativa) <> 1 Then 
-        WScript.Echo "Digite apenas uma letra"
-    ElseIf InStr(palavra, tentativa) Then
-        VerificarLetra(tentativa)
+    WScript.StdOut.WriteLine "Enter a letter:"
+    attempt = LCase(WScript.StdIn.ReadLine())
+    If Len(attempt) <> 1 Then
+        WScript.Echo "Enter only one letter"
+    ElseIf InStr(word, attempt) Then
+        CheckLetter(attempt)
     Else
-        erros = erros + 1
-        WScript.Echo "Erros: " & erros
-        DesenharBoneco(erros)
+        errors = errors + 1
+        WScript.Echo "Errors: " & errors
+        DrawMan(errors)
     End If
-    
 
-    Dim encontrouAsterisco
-    encontrouAsterisco = False
+    Dim foundAsterisk
+    foundAsterisk = False
 
-    For i = 0 To UBound(exibirPalavra)
-        If exibirPalavra(i) = "*" Then
-            encontrouAsterisco = True
+    For i = 0 To UBound(displayWord)
+        If displayWord(i) = "*" Then
+            foundAsterisk = True
             Exit For
         End If
     Next
 
-    If Not encontrouAsterisco Then
-        WScript.Echo "Acertou a palavra!!!"
+    If Not foundAsterisk Then
+        WScript.Echo "You guessed the word!!!"
         Exit Do
     End If
 Loop
 
-Function VerificarLetra(tentativa)
-    Dim i 
-    For i = 0 To Len(palavra) - 1
-        If letras(i) = tentativa Then
-            exibirPalavra(i) = tentativa
+Function CheckLetter(attempt)
+    Dim i
+    For i = 0 To Len(word) - 1
+        If letters(i) = attempt Then
+            displayWord(i) = attempt
         End If
     Next
-    WScript.Echo "Palavra Secreta: " & Join(exibirPalavra, "")
+    WScript.Echo "Secret Word: " & Join(displayWord, "")
 End Function
 
-Function DesenharBoneco(erros)
-    Select Case erros
-        Case 1 
-            WScript.Echo  " O "  & "   Palavra Secreta:" & Join(exibirPalavra, "")    
+Function DrawMan(errors)
+    Select Case errors
+        Case 1
+            WScript.Echo " O " & " Secret Word:" & Join(displayWord, "")
         Case 2
             WScript.Echo " O "
-            WScript.Echo "/|"   & "   Palavra Secreta:" &  Join(exibirPalavra, "")
+            WScript.Echo "/|" & " Secret Word:" & Join(displayWord, "")
         Case 3
             WScript.Echo " O "
-            WScript.Echo "/|\"  & "   Palavra Secreta:" & Join(exibirPalavra, "")  
+            WScript.Echo "/|\" & " Secret Word:" & Join(displayWord, "")
         Case 4
             WScript.Echo " O "
             WScript.Echo "/|\"
-            WScript.Echo "/"    & "   Palavra Secreta:" &  Join(exibirPalavra, "")  
+            WScript.Echo "/" & " Secret Word:" & Join(displayWord, "")
         Case 5
             WScript.Echo " O "
             WScript.Echo "/|\"
-            WScript.Echo "/ \"  & "   Palavra Secreta:" & Join(exibirPalavra, "")  
+            WScript.Echo "/ \" & " Secret Word:" & Join(displayWord, "")
     End Select
 End Function

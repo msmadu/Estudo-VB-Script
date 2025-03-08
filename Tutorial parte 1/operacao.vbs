@@ -3,17 +3,17 @@ Dim num1, num2
 num1 = 10
 num2 = 2
 
-Dim soma, subtracao, multiplicacao, divisao, resto, potencia
-soma = num1 + num2
-subtracao = num1 - num2
-multiplicacao = num1 * num2
-divisao = num1 / num2
-resto = num1 Mod num2
-potencia = num1 ^ num2
+Dim sum, subtraction, multiplication, division, remainder, power
+sum = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2
+remainder = num1 Mod num2
+power = num1 ^ num2
 
-MsgBox("Soma: " & soma & vbCrLf & "Subtração: " & subtracao)
-MsgBox("Multiplicação: " & multiplicacao & vbCrLf & "Divisão: " & divisao)
-MsgBox("Resto da divisão: " & resto & vbCrLf & "Potência: " & potencia)
+MsgBox("Sum: " & sum & vbCrLf & "Subtraction: " & subtraction)
+MsgBox("Multiplication: " & multiplication & vbCrLf & "Division: " & division)
+MsgBox("Remainder of division: " & remainder & vbCrLf & "Power: " & power)
 
 
-MsgBox("Um dos num é menor que 10:" & (num1<10 or num2<10) & vbCrLf & "Apenas um dos num é igual a 10:" & (num1<>10 xor num2<>10))
+MsgBox("One of the nums is less than 10:" & (num1<10 or num2<10) & vbCrLf & "Only one of the nums is equal to 10:" & (num1<>10 xor num2<>10))
