@@ -1,34 +1,34 @@
-'' Two Sum
-'' Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-'' You may assume that each input would have exactly one solution, and you may not use the same element twice.
+' Two Sum
+' Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+' You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 Option Explicit
 
 dim target
-dim listaArray
-dim receberLista
+dim listArray
+dim getList
 
-WScript.StdOut.WriteLine "Digite os numeros separados:"
-receberLista = WScript.StdIn.ReadLine() 
-listaArr = Split(lista, " ")
+WScript.StdOut.WriteLine "Enter the numbers separated by spaces:"
+getList = WScript.StdIn.ReadLine()
+listArr = Split(getList, " ")
 
-WScript.StdOut.WriteLine "Digite o numero alvo:"
+WScript.StdOut.WriteLine "Enter the target number:"
 target = WScript.StdIn.ReadLine()
 
-Call twoSum(listaArray, target)
+Call twoSum(listArray, target)
 
-Function twoSum(listaArray, num)
-    dim i 
+Function twoSum(listArray, num)
+    dim i
     dim j
-    dim maior
-    maior = UBound(listaArray)
-    for i = 0 to maior
-        for j = i + 1 to maior
-            if CInt(listaArray(i)) + CInt(listaArray(j)) = CInt(num) Then
+    dim greater
+    greater = UBound(listArray)
+    for i = 0 to greater
+        for j = i + 1 to greater
+            if CInt(listArray(i)) + CInt(listArray(j)) = CInt(num) Then
                 WScript.Echo "[" & i & "," & j & "]"
                 Exit Function
             End If
         Next
     Next
-    WScript.Echo "Nenhuma solução encontrada."
+    WScript.Echo "No solution found."
 End Function
